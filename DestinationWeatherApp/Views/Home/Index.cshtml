@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <br />
+        <h2>Distance between two points</h2>
+        <br />
+    </div>
+    <div class="col-sm-12 col-md-12">
+        <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving </label>
+        <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport </label>
+        <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing </label>
+        <label><input type="radio" name="travelMode" value="WALKING" /> Walking </label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="form-group">
+            <div class="input-group-prepend"><b>Travel From :</b></div>
+            <input id="travelfrom" class="form-control" type="text" name="name" enabled="true" value="" />
+        </div>
+    </div>
+    <div class="col-md-offset-2 col-lg-offset-2">
+        <div class="form-group">
+            <input class="btn btn-xs" type="button" id="showMe" title="You can click this button to use your current location" value="Use Current Location" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="form-group">
+            <div class="input-group-prepend"><b>To : </b></div>
+            <input id="travelto" class="form-control" type="text" name="name" enabled="true" value="" />
+        </div>
+
+        <div class="form-group">
+            <div class="slidecontainer">
+                <input type="range" min="1" max="5" value="1" class="slider" id="Range">
+            </div>
+            <div class="sliderinfo">
+                <span class="range-info">Weather range Days:</span><span id="output"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="button" id="GetRoute" onclick="GetRoute();" value="Get Route" />
+        </div>
+    </div>
+</div>
+<div id="info">
+    <div id="dvWeather"></div>
+    <div id="dvBestWeather"></div>
+    <div id="dvWorstWeather"></div>
+    <div id="dvLocation"></div>
+    <div id="dvDistance"></div>
+</div>
+
+<div class="row">
+    <div id="map" style="min-height:500px"></div>
+    <div id="dvPanel" style="min-width: 500px; min-height: 500px"></div>
+</div>
+<div id="googleMap"></div>
+
+
+@section scripts{
+    <!--ENSURE YOU CHANGE TO YOUR OWN API KEY HERE !!! -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=CalculateDistance&key=AIzaSyCLB9sMk0s-Jz9TE84ii1lQg2U3FS5PFKQ"></script>
+    <script type="text/javascript" src="~/Scripts/WeatherScript.js"></script>
+    <script type="text/javascript" src="~/Scripts/MapScript.js"></script>
+}
+
+
